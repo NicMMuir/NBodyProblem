@@ -2,10 +2,14 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <math.h>
+
+#define minquaddepth 10
 
 struct Node{
 // Node ID
  int ID;
+//Quadrant
 
 //Position X,Y,Z
   int x;
@@ -19,6 +23,8 @@ struct Node{
   float Mass; // Mass of Node
   struct Node * parent;// Parent Node (Possibly to move up tree if needs be)
   struct Node * child; // Child Node
+
+  int Quadrant[minquaddepth];
 
 };
 
@@ -48,4 +54,14 @@ void Print_Node(struct Node n){
   printf( "X Momentum : %f\n", n.my);
   printf( "X Momentum : %f\n", n.mz);
   printf("Mass : %f\n", n.Mass);
+}
+
+
+float dist(struct Node n1 , struct Node n2){
+  return(sqrt(pow(n1.x-n2.x,2)+pow(n1.y-n2.y,2)+pow(n1.z-n2.y,2)));
+}
+
+float force(struct Node n1 , struct Node n2){
+    float d = dist(n1,n2);
+    return ((n1.x - n2.x) + (n1.y-n2.y) + (n1.z-n2.z)) * (n1.Mass * n2.Mass / pow(d,3));
 }
