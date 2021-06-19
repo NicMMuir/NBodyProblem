@@ -5,6 +5,7 @@
 #include <math.h>
 
 #define minquaddepth 10
+#define minchild 10
 
 struct Node{
 // Node ID
@@ -22,10 +23,11 @@ struct Node{
 
   float Mass; // Mass of Node
   struct Node * parent;// Parent Node (Possibly to move up tree if needs be)
-  struct Node * child; // Child Node
+  int numchild;
+  struct Node *child[minchild]; // Child Node
 
   //Quadrant
-  int Quadrant[minquaddepth]; //stores depth of quadrant ie (1,1,3,4) means in 4th quad of third quad of first quad of first quad 
+  int Quadrant[minquaddepth]; //stores depth of quadrant ie (1,1,3,4) means in 4th quad of third quad of first quad of first quad
 
 };
 
@@ -41,10 +43,18 @@ struct Node create_Node(int ID,int size){
    new_Node.my = rand() % size;
    new_Node.mz = rand() % size;
    new_Node.Mass= (rand() % size)*100;
-   new_Node.parent=NULL;
-   new_Node.child=NULL;
+   new_Node.numchild=0;
    return new_Node;
 }
+
+void add_child_node(struct Node Parent,int ID , int size){
+  struct Node new_Node = create_Node(ID,size);
+  Parent.child[Parent.numchild] = &new_Node;
+  Parent.numchild = Parent.numchild+1;
+
+}
+
+
 
 void Print_Node(struct Node n){
   printf( "Node ID : %d\n", n.ID);
