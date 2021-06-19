@@ -9,7 +9,7 @@
 struct Node{
 // Node ID
  int ID;
-//Quadrant
+
 
 //Position X,Y,Z
   int x;
@@ -24,7 +24,8 @@ struct Node{
   struct Node * parent;// Parent Node (Possibly to move up tree if needs be)
   struct Node * child; // Child Node
 
-  int Quadrant[minquaddepth];
+  //Quadrant
+  int Quadrant[minquaddepth]; //stores depth of quadrant ie (1,1,3,4) means in 4th quad of third quad of first quad of first quad 
 
 };
 
