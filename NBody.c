@@ -1,4 +1,5 @@
 #include "Body.h"
+#include "Node.h"
 
 #define NumberofBodies 10
 int main(){

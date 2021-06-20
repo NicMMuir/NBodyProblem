@@ -6,10 +6,8 @@
 
 
 #define minquaddepth 10
-<<<<<<< HEAD:Node.h
 #define minchild 4
-=======
->>>>>>> parent of 4962b97... Reverted Body name back to Node:Body.h
+
 
 
 struct Body{
@@ -25,7 +23,6 @@ struct Body{
   float mz;
   float Mass; // Mass of Body
   //Quadrant
-  struct Node Child[minchild]
   int Quadrant[minquaddepth]; //stores depth of quadrant ie (1,1,3,4) means in 4th quad of third quad of first quad of first quad
 };
 
