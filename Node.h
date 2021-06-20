@@ -1,15 +1,14 @@
-//Body.h
+//Node.h
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
 #include <math.h>
 
-
 #define minquaddepth 10
+#define minchild 10
 
-
-struct Body{
-// Body ID
+struct Node{
+// Node ID
  int ID;
 //Position X,Y,Z
   int x;
@@ -19,34 +18,27 @@ struct Body{
   float mx;
   float my;
   float mz;
-  float Mass; // Mass of Body
+  float Mass; // Mass of Node
   //Quadrant
   int Quadrant[minquaddepth]; //stores depth of quadrant ie (1,1,3,4) means in 4th quad of third quad of first quad of first quad
 };
 
-struct Node{
-  int depth;
-
-};
-
-struct Body create_Body(int ID,int size){
-
-   struct Body new_Body;
-   new_Body.ID = ID;
-   new_Body.x = rand() % size;
-   new_Body.y = rand() % size;
-   new_Body.z = rand() % size;
-   new_Body.mx = rand() % size;
-   new_Body.my = rand() % size;
-   new_Body.mz = rand() % size;
-   new_Body.Mass= (rand() % size)*100;
-   return new_Body;
+struct Node create_Node(int ID,int size){
+   struct Node new_Node;
+   new_Node.ID = ID;
+   new_Node.x = rand() % size;
+   new_Node.y = rand() % size;
+   new_Node.z = rand() % size;
+   new_Node.mx = rand() % size;
+   new_Node.my = rand() % size;
+   new_Node.mz = rand() % size;
+   new_Node.Mass= (rand() % size)*100;
+   return new_Node;
 }
 
 
-
-void Print_Body(struct Body n){
-  printf( "Body ID : %d\n", n.ID);
+void Print_Node(struct Node n){
+  printf( "Node ID : %d\n", n.ID);
   printf( "X Position : %d\n", n.x);
   printf( "Y Position : %d\n", n.y);
   printf( "Z Position : %d\n", n.z);
@@ -57,11 +49,11 @@ void Print_Body(struct Body n){
 }
 
 
-float dist(struct Body n1 , struct Body n2){
+float dist(struct Node n1 , struct Node n2){
   return(sqrt(pow(n1.x-n2.x,2)+pow(n1.y-n2.y,2)+pow(n1.z-n2.y,2)));
 }
 
-float force(struct Body n1 , struct Body n2){
+float force(struct Node n1 , struct Node n2){
     float d = dist(n1,n2);
     return ((n1.x - n2.x) + (n1.y-n2.y) + (n1.z-n2.z)) * (n1.Mass * n2.Mass / pow(d,3));
 }

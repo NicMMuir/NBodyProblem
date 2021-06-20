@@ -1,17 +1,17 @@
-#include "Body.h"
+#include "Node.h"
 
 #define NumberofBodies 10
 int main(){
     srand(time(NULL));
-    struct Body Bodies[NumberofBodies];
+    struct Node Bodies[NumberofBodies];
     for(int k =0;k<NumberofBodies;k++){
 
-      struct Body new_Body = create_Body(k,100);
+      struct Node new_Node = create_Node(k,100);
 
-      Bodies[k] = new_Body;
+      Bodies[k] = new_Node;
     }
     for(int k =0;k<NumberofBodies;k++){
-        Print_Body(Bodies[k]);
+        Print_Node(Bodies[k]);
     }
 
 
