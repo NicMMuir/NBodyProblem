@@ -1,14 +1,19 @@
-//Node.h
+//Body.h
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
 #include <math.h>
 
-#define minquaddepth 10
-#define minchild 4
 
-struct Node{
-// Node ID
+#define minquaddepth 10
+<<<<<<< HEAD:Node.h
+#define minchild 4
+=======
+>>>>>>> parent of 4962b97... Reverted Body name back to Node:Body.h
+
+
+struct Body{
+// Body ID
  int ID;
 //Position X,Y,Z
   int x;
@@ -18,28 +23,35 @@ struct Node{
   float mx;
   float my;
   float mz;
-  float Mass; // Mass of Node
+  float Mass; // Mass of Body
   //Quadrant
   struct Node Child[minchild]
   int Quadrant[minquaddepth]; //stores depth of quadrant ie (1,1,3,4) means in 4th quad of third quad of first quad of first quad
 };
 
-struct Node create_Node(int ID,int size){
-   struct Node new_Node;
-   new_Node.ID = ID;
-   new_Node.x = rand() % size;
-   new_Node.y = rand() % size;
-   new_Node.z = rand() % size;
-   new_Node.mx = rand() % size;
-   new_Node.my = rand() % size;
-   new_Node.mz = rand() % size;
-   new_Node.Mass= (rand() % size)*100;
-   return new_Node;
+struct Node{
+  int depth;
+
+};
+
+struct Body create_Body(int ID,int size){
+
+   struct Body new_Body;
+   new_Body.ID = ID;
+   new_Body.x = rand() % size;
+   new_Body.y = rand() % size;
+   new_Body.z = rand() % size;
+   new_Body.mx = rand() % size;
+   new_Body.my = rand() % size;
+   new_Body.mz = rand() % size;
+   new_Body.Mass= (rand() % size)*100;
+   return new_Body;
 }
 
 
-void Print_Node(struct Node n){
-  printf( "Node ID : %d\n", n.ID);
+
+void Print_Body(struct Body n){
+  printf( "Body ID : %d\n", n.ID);
   printf( "X Position : %d\n", n.x);
   printf( "Y Position : %d\n", n.y);
   printf( "Z Position : %d\n", n.z);
@@ -50,11 +62,11 @@ void Print_Node(struct Node n){
 }
 
 
-float dist(struct Node n1 , struct Node n2){
+float dist(struct Body n1 , struct Body n2){
   return(sqrt(pow(n1.x-n2.x,2)+pow(n1.y-n2.y,2)+pow(n1.z-n2.y,2)));
 }
 
-float force(struct Node n1 , struct Node n2){
+float force(struct Body n1 , struct Body n2){
     float d = dist(n1,n2);
     return ((n1.x - n2.x) + (n1.y-n2.y) + (n1.z-n2.z)) * (n1.Mass * n2.Mass / pow(d,3));
 }
