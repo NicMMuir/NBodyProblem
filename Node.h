@@ -5,7 +5,7 @@
 #include <math.h>
 
 #define minquaddepth 10
-#define minchild 10
+#define minchild 4
 
 struct Node{
 // Node ID
@@ -20,6 +20,7 @@ struct Node{
   float mz;
   float Mass; // Mass of Node
   //Quadrant
+  struct Node Child[minchild]
   int Quadrant[minquaddepth]; //stores depth of quadrant ie (1,1,3,4) means in 4th quad of third quad of first quad of first quad
 };
 
