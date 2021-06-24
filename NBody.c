@@ -2,12 +2,13 @@
 #include "Node.h"
 
 #define NumberofBodies 10
+#define area 100
 int main(){
     srand(time(NULL));
     struct Body Bodies[NumberofBodies];
     for(int k =0;k<NumberofBodies;k++){
 
-      struct Body new_Body = create_Body(k,100);
+      struct Body new_Body = create_Body(k,area);
 
       Bodies[k] = new_Body;
     }
