@@ -12,8 +12,9 @@
 typedef struct Node{
   int x;
   int y;
-  int relx;
-  int rely;
+  int cmx;
+  int cmy;
+  float Mass;
   float side;
   bool parent;
   bool empty;
@@ -87,6 +88,3 @@ Node * get_quad_Node(Node * n , int Quad){
   }
 
 }
-
-
-
