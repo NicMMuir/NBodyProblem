@@ -1,6 +1,7 @@
 //Body.h
 
-
+#include <stdio.h>
+#include <stdlib.h>
 
 #define minchild 4
 
@@ -25,7 +26,7 @@ typedef struct Body{
 
    Body * new_Body = malloc (sizeof (Body));;
    new_Body->ID = ID;
-   new_Body->x = rand() % size;
+   new_Body->x = rand() % size;;
    new_Body->y = rand() % size;
 
    new_Body->mx = rand() % size;

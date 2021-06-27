@@ -7,15 +7,11 @@
 
 #define NumberofBodies 10
 #define area 100
-#define Theta 0.5
+#define Theta 5
 #define Gravity 0.1
 
 
-void Insert_Body(Node * n ,Body *b){
-  n->b = b;
-  n->empty = false;
-  n->Mass = b->Mass;
-}
+
 
 float distance_calc(Node *n, Body body){
   return(sqrt(pow(n->x-body.x,2)+pow(n->y-body.y,2)));
@@ -40,10 +36,10 @@ void insert(Node *n, Body * body){
     current_quad = Get_current_quad(n,&body);
     insert(get_quad_Node(n,current_quad), body);
   }else if(n->empty == true){
-    Insert_Body(n,&body);
+    Insert_Body(n,*body);
   }else{
     split_Node(n);
-    current_quad = Get_current_quad(n,&body);
+    current_quad = Get_current_quad(n, body);
     insert(get_quad_Node(n,current_quad) , body);
     current_quad = Get_current_quad(n,n->b);
     insert(get_quad_Node(n,current_quad ) , n->b);
@@ -72,6 +68,7 @@ float Force_Calc(Node *n, Body body){
     return(force);
 
   }else if(n->empty == true){
+    printf("this is why %s\n","");
     return(0);
   }else{
     return(calc_force2(n->b,body));
@@ -89,12 +86,12 @@ int main(){
     srand(time(NULL));
     Body *Bodies[NumberofBodies];
     for(int k =0;k<NumberofBodies;k++){
-
       Bodies[k] = create_Body(k,area);
     }
-     for(int k =0;k<NumberofBodies;k++){
-         Print_Body(Bodies[k]);
-     }
+
+//     for(int k =0;k<NumberofBodies;k++){
+//         Print_Body(Bodies[k]);
+//     }
 
 
     Node TreeRoot = init_tree(area);
@@ -105,7 +102,10 @@ int main(){
         insert(&TreeRoot, Bodies[k]);
     }
     // Force calc
-    printf("%f\n",Force_Calc(&TreeRoot,*Bodies[0]) );
+    for(int k =0;k<NumberofBodies;k++){
+        printf("force on this Bitch : %s %d %s %f\n","Body ID:",k, ":" ,Force_Calc(&TreeRoot,*Bodies[k]) );
+    }
+
 
 
     printf("complete %s\n","");
