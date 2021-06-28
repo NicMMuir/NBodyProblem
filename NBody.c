@@ -5,9 +5,9 @@
 #include <time.h>
 #include <math.h>
 
-#define NumberofBodies 10
+#define NumberofBodies 100
 #define area 100
-#define Theta 5
+#define Theta 10
 #define Gravity 0.1
 
 
@@ -103,7 +103,10 @@ int main(){
     }
     // Force calc
     for(int k =0;k<NumberofBodies;k++){
-        printf("force on this Bitch : %s %d %s %f\n","Body ID:",k, ":" ,Force_Calc(&TreeRoot,*Bodies[k]) );
+        float Force = Force_Calc(&TreeRoot,*Bodies[k]);
+        Bodies[k]->Force = Force;
+        printf("force on this Bitch : %s %d %s %f\n","Body ID:",k, ":" ,Force );
+        Print_Body(Bodies[k]);
     }
 
 

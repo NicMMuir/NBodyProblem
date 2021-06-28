@@ -13,9 +13,8 @@ typedef struct Body{
 //Position X,Y
   int x;
   int y;
-//Momentum X,Y
-  float mx;
-  float my;
+//Force in Newtons
+  float Force;
   float Mass; // Mass of Body
 //Quadrant
 
@@ -29,8 +28,6 @@ typedef struct Body{
    new_Body->x = rand() % size;;
    new_Body->y = rand() % size;
 
-   new_Body->mx = rand() % size;
-   new_Body->my = rand() % size;
 
    new_Body->Mass= (rand() % size)*100;
    return new_Body;
@@ -42,8 +39,7 @@ void Print_Body(Body * n){
   printf( "Body ID : %d\n", n->ID);
   printf( "X Position : %d\n", n->x);
   printf( "Y Position : %d\n", n->y);
-  printf( "X Momentum : %f\n", n->mx);
-  printf( "X Momentum : %f\n", n->my);
+  printf( "Force : %f\n", n->Force);
   printf("Mass : %f\n", n->Mass);
 }
 
