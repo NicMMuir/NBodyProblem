@@ -1,7 +1,3 @@
-//
-// Created by simon on 2021/06/27.
-//
-
 #include "header.h"
 #define IS_LOGGING_NODE false
 #define THETA 1.0
@@ -284,4 +280,3 @@ void CompForce(struct Body* body, struct Node* node){
         // Do nothing?
     }
 }
-

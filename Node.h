@@ -1,7 +1,3 @@
-//
-// Created by simon on 2021/06/27.
-//
-
 #ifndef NBODY_ALT_NODE_H
 #define NBODY_ALT_NODE_H
 

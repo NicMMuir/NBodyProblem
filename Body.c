@@ -1,7 +1,3 @@
-//
-// Created by simon on 2021/06/27.
-//
-
 #include "Body.h"
 #include "header.h"
 
