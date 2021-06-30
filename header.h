@@ -10,10 +10,10 @@
     #include <math.h>
     #include <stdbool.h>
     #include <float.h>
-
     #include "Node.h"
     #include "Body.h"
     #include "NBody.h"
+    #include <mpi.h>
 
 
     

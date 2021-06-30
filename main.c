@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "header.h"
 
-int main() {
+int main(int argc, char *argv[]) {
 
     double size = 100;
 
@@ -16,7 +16,7 @@ int main() {
     PrintAllBodies(bodies, n);
 
 
-    CompNBody(bodies, n, 100, 0.1);
+    CompNBody(bodies, n, 100, 0.1 ,argc,argv);
   
 
     printf("########################\n");

@@ -1,5 +1,5 @@
 DEPS=Body.c Node.c NBody.c
-CC=gcc
+CC=mpicc
 
 all:
 	$(CC) main.c $(DEPS) -o main -lm
