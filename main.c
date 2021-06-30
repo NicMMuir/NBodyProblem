@@ -17,6 +17,7 @@ int main() {
 
 
     CompNBody(bodies, n, 100, 0.1);
+  
 
     printf("########################\n");
     printf("#         AFTER        #\n");

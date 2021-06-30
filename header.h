@@ -16,7 +16,7 @@
     #include "NBody.h"
 
 
-    #define float float_too_small
+    
 
 
 #endif //NBODY_ALT_HEADER_H

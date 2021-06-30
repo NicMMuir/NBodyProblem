@@ -1,10 +1,11 @@
 DEPS=Body.c Node.c NBody.c
 CC=gcc
 
-all: main
-
-main: main.c
+all:
 	$(CC) main.c $(DEPS) -o main -lm
 
 clean:
 	rm main
+
+run:
+	./main

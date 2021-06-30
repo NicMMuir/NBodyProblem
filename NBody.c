@@ -2,7 +2,7 @@
 
 void CompNBody(struct Body **bodies, int n, int no_time_step, double time_step){
     int size = 100000; // Should be computed from bodies along with centre -> probs?
-    const char *file_name = "/home/simon/Documents/HPC/Project/NBody_Alt/data/points.txt";
+    const char *file_name = "/home/nic/CLionProjects/HPCProj/data/points.txt";
 
     // Clear contents
     FILE* fp = fopen(file_name, "w+");
@@ -11,12 +11,6 @@ void CompNBody(struct Body **bodies, int n, int no_time_step, double time_step){
 
     fp = fopen(file_name, "a");
 
-//    if (fp != NULL) {
-//        TreeToDotFile(head_node, fp);
-//        fclose(fp);
-//    } else {
-//        printf("FILE NOT FOUND\n");
-//    }
 
     for (int t = 1; t<=no_time_step; t++){
         double min_pos, max_pos;
@@ -39,7 +33,6 @@ void CompNBody(struct Body **bodies, int n, int no_time_step, double time_step){
 
         // Compute New Velocities and New Positions Stage
         for (int i = 0; i<n; i++){
-//            PrintBody(bodies[i]);
             UpdatePosAndVel(bodies[i], time_step);
         }
         ResetTree(head_node);
