@@ -194,24 +194,6 @@ void NodeToDotFile(struct Node* curr_node, FILE* fp){
 void TreeToDotFile(struct Node* root_node, FILE* fp){
     fprintf(fp, "graph n_body_graph {\n");
     NodeToDotFile(root_node, fp);
-//    fprintf(fp, "%lf_%lf [label=\"(%lf,%lf)\",shape=box];\n", root_node->centre_x,
-//            root_node->centre_y, root_node->centre_x, root_node->centre_y);
-//
-//
-//    // Assuming root has children
-//    for (int i = 0; i<4; i++){
-//        struct Node* child_node = root_node->child_nodes[i];
-//        fprintf(fp, "%lf_%lf -- %lf_%lf; \n", root_node->centre_x, root_node->centre_y,
-//                child_node->centre_x, child_node->centre_y);
-//        if (!child_node->is_empty) { // I.e. leaf node
-//            // Do something
-//            fprintf(fp, "%lf_%lf [label=\"(%lf,%lf)\",shape=circle];\n", child_node->centre_x,
-//                    child_node->centre_y, child_node->centre_x, child_node->centre_y);
-//        } else {
-//            //
-//        }
-//    }
-    //NodeToDotFile(root_node, root_node, fp);
     fprintf(fp, "}\n");
 }
 

@@ -135,3 +135,13 @@ void CompMinMaxPosition(struct Body** bodies, int n, double *min_ptr, double *ma
     *min_ptr = min_val;
     *max_ptr = max_val;
 }
+
+void HardCopy(struct Body* body1, struct Body* body2){
+  body1->x = body2->x;
+  body1->y = body2->y;
+  body1->vel_x= body2->vel_x;
+  body1->vel_y= body2-> vel_y;
+  body1->mass= body2->mass;
+  body1->force_x = body2->force_x;
+  body1->force_y = body2->force_y;
+}

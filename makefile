@@ -1,8 +1,7 @@
 DEPS=Body.c Node.c NBody.c
-CC=mpicc
 
 all:
-	$(CC) main.c $(DEPS) -o main -lm
+	mpicc -g -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -o main main.c $(DEPS)  -lm
 
 clean:
 	rm main

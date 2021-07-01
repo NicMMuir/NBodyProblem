@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include "header.h"
 
-int main(int argc, char *argv[]) {
+int main() {
 
     double size = 100;
 
 
 
-    int n = 25; // 5
+    int n = 100; // 5
     struct Body** bodies = CreateRandBodies(n, 0, 100, 0, 2, 1, 5);
 
     printf("########################\n");
@@ -16,8 +16,8 @@ int main(int argc, char *argv[]) {
     PrintAllBodies(bodies, n);
 
 
-    CompNBody(bodies, n, 100, 0.1 ,argc,argv);
-  
+    CompNBody(bodies, n, 100, 0.1);
+
 
     printf("########################\n");
     printf("#         AFTER        #\n");
