@@ -1,12 +1,10 @@
 #include "header.h"
-#define NumNodes 8
+#define NumNodes 2
 
 
 MPI_Datatype mpi_body_type;
-
 //slave node arrays
 struct Body slavebodies[1000];
-
 
 
 
@@ -150,19 +148,14 @@ void CreateMPIType(){
 	int blocklengths[8] = {1,1,1,1,1,1,1,1};
 	MPI_Datatype types[8] = {MPI_INT,MPI_DOUBLE,MPI_DOUBLE,MPI_DOUBLE,MPI_DOUBLE,MPI_DOUBLE,MPI_DOUBLE,MPI_DOUBLE};
 	MPI_Aint offsets[8];
-	offsets[0] = offsetof(struct Body , id);
+	offsets[0] = offsetof( struct Body , id);
 	offsets[1] = offsetof(struct Body , x);
 	offsets[2] = offsetof(struct Body , y);
-	offsets[3] = offsetof(struct Body , mass);
-	offsets[4] = offsetof(struct Body , vel_x);
-	offsets[5] = offsetof(struct Body , vel_y);
+	offsets[3] = offsetof(struct Body, mass);
+	offsets[4] = offsetof(struct Body, vel_x);
+	offsets[5] = offsetof(struct Body, vel_y);
 	offsets[6] = offsetof(struct Body , force_x);
 	offsets[7] = offsetof(struct Body , force_y);
 	MPI_Type_create_struct(nitems,blocklengths,offsets,types, &mpi_body_type);
 	MPI_Type_commit(&mpi_body_type);
-}
-
-// TODO
-double GetMaxBound(struct Body **bodies, int n){
-    //
 }

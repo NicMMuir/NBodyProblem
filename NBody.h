@@ -2,4 +2,5 @@
 #define NBODY_ALT_NBODY_H
 //    #include "header.h"
     void CompNBody(struct Body **bodies, int n, int no_time_step, double time_step);
+    void CreateMPIType();
 #endif //NBODY_ALT_NBODY_H

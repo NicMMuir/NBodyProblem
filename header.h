@@ -13,10 +13,10 @@
     #include "Node.h"
     #include "Body.h"
     #include "NBody.h"
-    #include </usr/lib/x86_64-linux-gnu/openmpi/include/mpi.h>
+    #include <mpi.h>
 
 
-    
+
 
 
 #endif //NBODY_ALT_HEADER_H
