@@ -1,2 +1,4 @@
 # NBodyProblem
-Optimising NBody Problem with CUDA and MPI
+Optimising NBody Problem Using MPI.
+Each Branch contains a different Implementation of the Barnes-Hut Algorithm.
+
